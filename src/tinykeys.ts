@@ -1,4 +1,9 @@
 /**
+ * Valid targets for keydown/keyup events.
+ */
+export type KeybindingTarget = Window | Document | Element
+
+/**
  * A single press of a keybinding sequence.
  */
 export type KeybindingPress = readonly [
@@ -344,7 +349,7 @@ export function createKeybindingsHandler(
  * ```
  */
 export function tinykeys(
-	target: Window | HTMLElement,
+	target: KeybindingTarget,
 	keybindingMap: KeybindingsMap,
 	options: KeybindingOptions = {},
 ): () => void {
